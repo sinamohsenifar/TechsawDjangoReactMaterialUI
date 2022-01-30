@@ -1,0 +1,18 @@
+<html>
+	<body>
+		{% autoescape off %} Hi {{user}}
+		<p>please use The Link Below to verify your</p>
+		<form
+			method="post"
+			action="http://localhost:8000{% url 'rest-users:user-activation' %}"
+		>
+			{% csrf_token %}
+
+			<input type="hidden" id="id" name="id" value="{{ id }}" />
+			<input type="hidden" id="token" name="token" value="{{ token }}" />
+			<input type="submit" value="Activate" />
+		</form>
+		{%endautoescape %}
+		<img src="mysite.com/logo.gif" />
+	</body>
+</html>
